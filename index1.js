@@ -1,17 +1,20 @@
-var a=document.getElementsByClassName("list-group-item")
+var item=document.querySelector('#items');
+console.log(item.parentNode.parentElement)
 
-a[2].style.backgroundColor='green'
+item.lastElementChild.style.backgroundColor='red'
 
-for(var i=0;i<4;i++){
-    a[i].style.fontWeight='bold'
-}
+item.lastElementChild.textContent='not an item'
 
-var a=document.getElementsByClassName('list-group-item')
+console.log(item.lastChild)
 
-a[4].style.backgroundColor='red'
- 
-var b=document.getElementById('items')
-var c=document.querySelector('.list-group-item:nth-child(2)')
-c.style.backgroundColor='green'
-var d=document.getElementsByClassName('list-group-item')
-d[1].remove()
+item.firstElementChild.style.backgroundColor='grey'
+
+console.log(item.nextSibling)
+console.log(item.previousElementSibling)
+
+var items=document.createTextNode('hello')
+items.className='class'
+items.setAttribute('hiii','ds')
+console.log(items.textContent)
+var cont=document.querySelector('header .container');
+cont.insertBefore(items,item)
