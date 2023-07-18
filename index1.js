@@ -1,20 +1,7 @@
-var item=document.querySelector('#items');
-console.log(item.parentNode.parentElement)
+var deleteBtn = document.createElement('button');
 
-item.lastElementChild.style.backgroundColor='red'
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
 
-item.lastElementChild.textContent='not an item'
-
-console.log(item.lastChild)
-
-item.firstElementChild.style.backgroundColor='grey'
-
-console.log(item.nextSibling)
-console.log(item.previousElementSibling)
-
-var items=document.createTextNode('hello')
-items.className='class'
-items.setAttribute('hiii','ds')
-console.log(items.textContent)
-var cont=document.querySelector('header .container');
-cont.insertBefore(items,item)
+  // Append text node
+  deleteBtn.appendChild(document.createTextNode('X'));
