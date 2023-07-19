@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+
+nav{
+    background-color:rgb(234, 211, 223);
+
+}
+
+li {
+    color:white;
+    font-size: 35px;
+    font-weight:bold
+}
+
+nav ul{
+    float:right
+}
+
+nav ul li{
+    
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 15px;
+}
