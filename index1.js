@@ -35,7 +35,7 @@ function search(e){
     Array.from(items).forEach(function(item){
         var itemname=item.firstChild.textContent;
         if(itemname.toLowerCase().indexOf(text)!=-1){
-            item.style.display='block';
+           
         }else{
             item.style.display='none';
         }

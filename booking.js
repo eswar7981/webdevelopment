@@ -1,6 +1,7 @@
 var item=document.getElementById("form")
-
+var itemList=document.getElementById('items');
 form.addEventListener('submit',addItem)
+
 
 function addItem(e){
     e.preventDefault();
@@ -9,14 +10,29 @@ function addItem(e){
     var email=document.getElementById('form3').value;
 
 
-    myobj={name:[name],phnno:[phonenumber],email:[email]}
-    myobj1=JSON.stringify(myobj)
-    localStorage.setItem('myobj',myobj1)
+    var newli=document.createElement('li');
+    newli.className="list-group";
+    var temp=name+' '+phonenumber+" "+email
+    newli.appendChild(document.createTextNode(temp));
+    itemList.appendChild(newli)
+    
 
-    myobj=localStorage.getItem('myobj')
-    my=JSON.parse(myobj)
-    my.name.push(name)
-    localStorage.setItem('myobj',my)
+    myobj={name:name,email:email,phonenumber:phonenumber}
+    let obj=JSON.stringify(myobj);
+    localStorage.setItem('obj',obj)
+
+    
+    const delbutton=document.createElement('input');
+    delbutton.type='button'
+    delbutton.value="Delete"
+    delbutton.onclick=() =>{
+        localStorage.removeItem('obj')
+        itemList.removeChild(newli)
+    }
+    newli.appendChild(delbutton);
+    
+   
+
 
   
 
