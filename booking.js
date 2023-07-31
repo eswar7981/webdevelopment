@@ -18,8 +18,17 @@ function addItem(e){
     
 
     myobj={name:name,email:email,phonenumber:phonenumber}
-    let obj=JSON.stringify(myobj);
-    localStorage.setItem(name,obj)
+
+    obj={
+        name,email,phonenumber
+    }
+
+    axios.post("https://crudcrud.com/api/963301cc8a974ef89266b0d96b77fb82/appointmentdata",obj)
+    .then((res) =>
+    console.log(res))
+    .catch((err)=>
+    console.log(err))
+
 
     
     const delbutton=document.createElement('input');
