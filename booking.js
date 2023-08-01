@@ -35,8 +35,7 @@ function addItem(e){
     delbutton.value="Delete"
     delbutton.onclick=() =>{
         localStorage.removeItem(name)
-        axios.get("")
-        axios.delete("https://crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata/")
+        axios.delete("https://crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata")
         itemList.removeChild(newli)
     }
      
@@ -46,14 +45,6 @@ function addItem(e){
     edit.value="Edit"
     edit.onclick=() =>{
       
-        var s=document.getElementById("form")
-        var abc=localStorage.getItem(name)
-        console.log(abc)
-        abc=JSON.parse(abc)
-        s[0].value=abc['name']
-        s[1].value=abc["phonenumber"]
-        s[2].value=abc["email"]
-       
 
 
         localStorage.removeItem(name)
@@ -108,7 +99,7 @@ function showNewUser(user){
         s[3].value=user._id
        
 
-
+        axios.delete(`https:/crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata/${user._id}`)
         localStorage.removeItem(user.name)
         itemList.removeChild(newli)
     }
