@@ -18,23 +18,16 @@ function addItem(e){
     
 
     myobj={name:name,email:email,phonenumber:phonenumber}
-<<<<<<< HEAD
-=======
 
->>>>>>> a0a7322ee437e3fc704f4c4e9973c623abecf173
     obj={
         name,email,phonenumber
     }
 
-    axios.post("https://crudcrud.com/api/963301cc8a974ef89266b0d96b77fb82/appointmentdata",obj)
+    axios.post("https://crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata",obj)
     .then((res) =>
     console.log(res))
     .catch((err)=>
     console.log(err))
-<<<<<<< HEAD
-=======
-
->>>>>>> a0a7322ee437e3fc704f4c4e9973c623abecf173
 
     
     const delbutton=document.createElement('input');
@@ -42,6 +35,8 @@ function addItem(e){
     delbutton.value="Delete"
     delbutton.onclick=() =>{
         localStorage.removeItem(name)
+        axios.get("")
+        axios.delete("https://crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata/")
         itemList.removeChild(newli)
     }
      
@@ -75,7 +70,7 @@ function addItem(e){
 
 
 window.addEventListener("DOMContentLoaded",() =>{
-    axios.get("https://crudcrud.com/api/963301cc8a974ef89266b0d96b77fb82/appointmentdata")
+    axios.get("https://crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata")
     .then((response)=>{
     console.log(response)
     for(var i=0;i<response.data.length;i++){
@@ -90,14 +85,14 @@ window.addEventListener("DOMContentLoaded",() =>{
 function showNewUser(user){
     var newli=document.createElement('li');
     newli.className="list-group";
-    var temp=user.name+' '+user.phonenumber+" "+user.email
+    var temp=user.name+' '+user.phonenumber+" "+user.email+" "+user._id
     newli.appendChild(document.createTextNode(temp));
     itemList.appendChild(newli)
     const delbutton=document.createElement('input');
     delbutton.type='button'
     delbutton.value="Delete"
     delbutton.onclick=() =>{
-        localStorage.removeItem(name)
+        axios.delete(`https:/crudcrud.com/api/b04a13ea95a0453090102eabd397ce3b/appointmentdata/${user._id}`)
         itemList.removeChild(newli)
     }
      
@@ -110,6 +105,7 @@ function showNewUser(user){
         s[0].value=user.name
         s[1].value=user.phonenumber
         s[2].value=user.email
+        s[3].value=user._id
        
 
 
