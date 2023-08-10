@@ -1,0 +1,16 @@
+function ExpenseItem(){
+    return (
+        <div>
+            <div>Date</div>
+            <div>
+                <h2>Expenses Items</h2>
+                <a>Food Rs 10</a><br></br>
+                <a>Petrol Rs 100</a><br></br>
+                <a>Movies Rs 200</a><br></br>
+
+            </div>
+        </div>
+      )
+
+    }
+export default ExpenseItem;
