@@ -1,14 +1,23 @@
 import './expenseItem.css';
 
 
-function ExpenseItem(loca){
 
 
+function ExpenseItem(a){
 
+ 
+  
     return (
-        <div className="expense-item">
-            <div>Date</div>
+            <div class="expense-item">
+                <a>{a.amount1}</a>
+                <a>{a.location1}</a>
+                <a>{a.date1}</a>
+                <a>{a.title1}</a>
+         
+
+
             <div className="expense-item__description">
+                
                 <h2>Expenses Items</h2>
                 <a>Food Rs </a><br></br>
                 <a>Petrol Rs 100</a><br></br>
@@ -17,10 +26,15 @@ function ExpenseItem(loca){
                
                 <a>locationofExpenditure</a>
                 <a>Shopping mall</a>
-                <a>{loca.locat}</a>
+                
              
+              
             </div>
-        </div>
+           </div>
+          
+       
+
+
       )
 
     }
