@@ -1,26 +1,47 @@
+import "./ExpenseForm.css";
+
+import { useState } from "react";
+
 const ExpenseForm = () => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
+
+  //const [userInput,setUserInput]= useState({
+    //title:" ",
+    //amount:" ",
+   // date:" "
+  //})
+
+
   const func1= (e) => {
-    setTitle(e.target.value);
+    setTitle(e.target.value)
   };
    
 
   const func2= (e) => {
-    setDate(e.target.value);
+    setDate(e.target.value)
   };
 
   const func3= (e) => {
-    setAmount(e.target.value);
+    setAmount(e.target.value)
   };
-
+ 
+  const submitForm=(e)=>{
+    e.preventDefault();
+    const expenseData={
+    title1:title,
+    date1:date,
+    amount1:amount}
+    
+  console.log(expenseData)
+  }
 
 
   return (
-    <div className="new-expense">
-      <form>
+   
+      <form onSubmit={submitForm}>
         <label>Title</label>
         <br></br>
         <input type="text" onChange={func1}></input>
@@ -39,12 +60,11 @@ const ExpenseForm = () => {
         <br></br>
         <label>{amount}</label>
         <br></br>
-        
+        <button>submit</button>
       </form>
-      <button>submit</button>
-    </div>
+     
+   
   );
 };
 
 export default ExpenseForm;
-ry
