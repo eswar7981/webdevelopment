@@ -5,21 +5,24 @@ import ExpenseForm from './components/Expenses/ExpenseForm';
 import ExpenseFilter from './components/Expenses/ExpenseFilter'
 import { useState } from 'react';
 
-
-
-function App(props) {
-  const a=[{name:"Car loan",amount:400,date:new Date(2020,4,11)},
-  {name:"Insurance",amount:300,date:new Date(2020,4,13)},
+const a=[{name:"Car loan",amount:400,date:new Date(2020,4,14)},
+  {name:"Insurance",amount:300,date:new Date(2020,4,14)},
   {name:"Food",amount:1400,date:new Date(2020,4,14)}
 ]
- 
+
+function App(props) {
+  const[expenses,setExpenses]=useState(a);
+
+  const saveExpensehandler=expense=>{
+    setExpenses((prevExpenses)=>{
+      return [expenses,...prevExpenses]
+      console.log(expenses)
+    })
+  }
 
   const [filterYear,setFilterYear]=useState('')
 
-  const saveExpensehandler=(enteredData)=>{
-   
-   
-  }
+ 
 
   const filterChangeHandler=selectYear=>{
     setFilterYear(selectYear);
@@ -27,16 +30,14 @@ function App(props) {
 
   return (
     <div className="App">
-      
-      <ExpenseItem title={a[0].name} amount={a[0].amount} date={a[0].date}></ExpenseItem>
-      <ExpenseItem title={a[1].name} amount={a[1].amount} date={a[1].date}></ExpenseItem>
-      <ExpenseItem title={a[2].name} amount={a[2].amount} date={a[2].date}></ExpenseItem>
-     
-     
-       <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler}></ExpenseFilter>
+      {a.map((s)=><ExpenseItem key={s.id} title={s.name} amount={s.amount} date={s.date}></ExpenseItem>
+
+)}
+
       <ExpenseForm onSaveExpense={saveExpensehandler}></ExpenseForm>
     </div>
   );
 }
 
 export default App;
+
