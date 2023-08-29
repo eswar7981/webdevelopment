@@ -22,7 +22,9 @@ function App(props) {
 
   const [filterYear,setFilterYear]=useState('')
 
- 
+  const filteredExpenses=a.filter(expense=>{
+    return expense.date.getFullYear().toString()===filterYear;
+  })
 
   const filterChangeHandler=selectYear=>{
     setFilterYear(selectYear);
@@ -30,10 +32,22 @@ function App(props) {
 
   return (
     <div className="App">
+      <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler}> </ExpenseFilter>
       {a.map((s)=><ExpenseItem key={s.id} title={s.name} amount={s.amount} date={s.date}></ExpenseItem>
+      
 
+     
 )}
 
+     {filteredExpenses.map((expense)=>{
+      <ExpenseItem>
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      </ExpenseItem>
+     })}
+    
       <ExpenseForm onSaveExpense={saveExpensehandler}></ExpenseForm>
     </div>
   );
