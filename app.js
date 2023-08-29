@@ -38,8 +38,10 @@ function App(props) {
 
      
 )}
-
-     {filteredExpenses.map((expense)=>{
+    {filteredExpenses.length===0 && <p>No expense Found</p>}
+     {filteredExpenses.length>0 &&
+     
+     filteredExpenses.map((expense)=>{
       <ExpenseItem>
         key={expense.id}
         title={expense.title}
